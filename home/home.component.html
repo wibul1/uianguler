@@ -1,0 +1,13 @@
+<div class="content">
+    <button class="addbook" (click)="openAddBookModal()">Add book</button>
+    <app-getapi></app-getapi>
+</div>
+
+<!-- แสดงคอมโพเนนต์ <app-addbook> เป็นป๊อปอัพเมื่อคลิกปุ่ม -->
+<div class="modal" *ngIf="isAddBookModalOpen">
+    <div class="modal-content">
+        <span class="close" (click)="closeAddBookModal()">&times;</span>
+        <!-- รับอีเวนต์ bookAdded และปิดป๊อปอัพ -->
+        <app-addbook (bookAdded)="closeAddBookModal()"></app-addbook>
+    </div>
+</div>

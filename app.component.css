@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #348f22;
+    padding: 1rem;
+
+    & .logo{
+        color: #fff;
+    }
+    & .menu{
+        display: flex;
+        list-style: none;
+        & li{
+            margin: 0 2rem;
+            & a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+footer {
+    padding: 1rem;
+    color: #fff;
+    text-align: center;
+    background-color: #757575;
+
+}

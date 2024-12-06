@@ -1,0 +1,45 @@
+<!-- รายการหนังสือ -->
+<div class="book-list">
+  <div class="book-item" *ngFor="let book of books">
+    <img [src]="book.image" alt="{{ book.title }}" class="book-image" *ngIf="book.image" />
+    <div class="book-details">
+      <h2>{{ book.title }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Price:</strong> ${{ book.price }}</p>
+      <p><strong>Category:</strong> {{ book.category }}</p>
+      <button class="btn btn-view" (click)="openDetailsModal(book.id)">View Details</button>
+      <button class="btn btn-delete" (click)="deleteBook(book.id)">Delete</button>
+      <button class="btn btn-update" (click)="openUpdateModal(book)">Update</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- รายละเอียดหนังสือในป๊อปอัพ -->
+<div *ngIf="isDetailsModalOpen" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeDetailsModal()">&times;</span>
+    <h2>{{ selectedBook?.title }}</h2>
+    <p><strong>Author:</strong> {{ selectedBook?.author }}</p>
+    <p><strong>Price:</strong> ${{ selectedBook?.price }}</p>
+    <p><strong>Category:</strong> {{ selectedBook?.category }}</p>
+    <img [src]="selectedBook?.image" alt="{{ selectedBook?.title }}" class="book-image" *ngIf="selectedBook?.image" />
+  </div> 
+</div>
+
+
+<!-- ฟอร์มแก้ไขหนังสือในป๊อปอัพ -->
+<div *ngIf="isUpdateModalOpen" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeUpdateModal()">&times;</span>
+    <h2>Update Book</h2>
+    <form (submit)="submitUpdate()">
+      <input [(ngModel)]="updatedBook.title" placeholder="Title" name="title" required />
+      <input [(ngModel)]="updatedBook.author" placeholder="Author" name="author" required />
+      <input [(ngModel)]="updatedBook.price" placeholder="Price" type="number" name="price" required />
+      <input [(ngModel)]="updatedBook.category" placeholder="Category" name="category" required />
+      <input [(ngModel)]="updatedBook.image" placeholder="Image URL" name="image" />
+      <button type="submit">Update Book</button>
+    </form>
+  </div>
+</div>

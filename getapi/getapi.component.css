@@ -1,0 +1,178 @@
+/* รูปแบบของรายการหนังสือ */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.book-item {
+  display: flex;
+  width: calc(20% - 20px); /* แสดงผล 5 รายการต่อแถวในหน้าจอใหญ่ */
+  background-color: #f8f8f8;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.book-image {
+  width: 120px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-details h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.book-details p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* ปุ่มต่างๆ */
+.btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-view {
+  background-color: #28a745;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-update {
+  background-color: #007bff;
+  color: white;
+}
+
+/* ส่วนของหนังสือที่เลือก */
+.selected-book {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+}
+
+.selected-book h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* ส่วนของฟอร์มเพิ่มและแก้ไขหนังสือ */
+.form-section {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-section button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-section button:hover {
+  background-color: #0056b3;
+}
+
+/* ส่วนของป๊อปอัพ */
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .book-item {
+    width: calc(33.33% - 20px); /* แสดงผล 3 รายการต่อแถวในหน้าจอขนาดกลาง */
+  }
+}
+
+@media (max-width: 768px) {
+  .book-item {
+    width: calc(50% - 20px); /* แสดงผล 2 รายการต่อแถวในหน้าจอขนาดเล็ก */
+  }
+}
+
+@media (max-width: 576px) {
+  .book-item {
+    width: 100%; /* แสดงผล 1 รายการต่อแถวในหน้าจอขนาดเล็กมาก */
+    margin: 0 0 20px 0;
+  }
+
+  .book-image {
+    width: 100px; /* ลดขนาดรูปในหน้าจอเล็ก */
+  }
+
+  .btn {
+    font-size: 12px; /* ลดขนาดปุ่ม */
+    padding: 6px 10px;
+  }
+}

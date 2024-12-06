@@ -1,0 +1,9 @@
+<h2>Add New Book</h2>
+<form class="form-section" (submit)="createBook()">
+  <input  [(ngModel)]="newBook.title" placeholder="Title" name="title" required />
+  <input  [(ngModel)]="newBook.author" placeholder="Author" name="author" required />
+  <input  [(ngModel)]="newBook.price" placeholder="Price" type="number" name="price" required />
+  <input  [(ngModel)]="newBook.category" placeholder="Category" name="category" required />
+  <input  type="file" (change)="onFileChange($event)" accept="image/*" />
+  <button type="submit">Add Book</button>
+</form>
